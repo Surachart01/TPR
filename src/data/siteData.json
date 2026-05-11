@@ -66,8 +66,8 @@
     "philosophy": "“การศึกษาเพื่อพัฒนาอาชีพและพัฒนาสังคม”",
     "identity": "ทักษะวิชาชีพดี",
     "uniqueness": "“เด่นวิชาการ ชำนาญวิชาชีพ”",
-    "videoUrl": "https://www.youtube.com/embed/S_8qUIdC0c8",
-    "orgChartUrl": "https://nc.ac.th/nvc/wp-content/uploads/2021/08/แผนผังองค์กร.png",
+    "videoUrl": "https://www.youtube.com/embed/3tY0orRkRpA",
+    "orgChartUrl": "https://lh3.googleusercontent.com/sitesv/AA5AbUDo5Z3R-ZVTMvdmE4QTOpES3Nq1UpKHQ4ZcKQi1mTZHdLdTJyoeYA5KVFqSnlaglR4XKroMwhOwfeZn4uQtRKeDCUhNzHXOf66BJkcbBH7DFqfDA2VSos8_4-UAcJnzPuO9HVHLLNvmhFdYfUI310HSWl_IxGWypyoROqpR3F-rZPMhU-sOe3VekBSQkxTUJGGVAWE3u9RWmmhHfwOZdD43mIOJr63Jscxi=w1280",
     "history": [
       { "year": "2477", "title": "จุดเริ่มต้น", "description": "ก่อตั้งขึ้นเมื่อวันที่ 1 ธันวาคม 2477 ชื่อ “โรงเรียนวิสามัญการช่าง” โดยใช้สถานที่เรียนร่วมกับโรงเรียนสตรีฝึกหัดครูนครปฐม มีนางไปล่ สาริกบุตร เป็นผู้รักษาการครูใหญ่" },
       { "year": "2481", "title": "โรงเรียนการช่างสตรี", "description": "เปลี่ยนชื่อเป็น โรงเรียนการช่างสตรี" },
@@ -126,7 +126,8 @@
   },
   "activities": {
     "title": "กิจกรรม",
-    "description": "ประมวลภาพกิจกรรมและการเข้าร่วมงานต่างๆ ตลอดปีการศึกษา",
+    "description": "ประมวลภาพกิจกรรมและการเข้าร่วมงานต่างๆ ตลอดการฝึกสอน",
+    "sheetUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQD8D7QPtKiO7w266w1zu5a1sUSy9pxW9ScFxOrA4wlpgKswS7L9YTRLANyB_ttcH-1cDFamhcacVO6/pub?gid=1214026689&single=true&output=csv",
     "term1": [
       {
         "id": "act-1-1",
@@ -188,6 +189,11 @@
       }
     ]
   },
+  "teachingRecord": {
+    "title": "บันทึกการฝึกสอน",
+    "description": "บันทึกสรุปการปฏิบัติหน้าที่การสอนรายวัน รายสัปดาห์ และกิจกรรมที่ได้รับมอบหมาย",
+    "sheetUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQD8D7QPtKiO7w266w1zu5a1sUSy9pxW9ScFxOrA4wlpgKswS7L9YTRLANyB_ttcH-1cDFamhcacVO6/pub?gid=0&single=true&output=csv"
+  },
   "creators": {
     "title": "จัดทำโดย",
     "student": {
@@ -198,10 +204,11 @@
       "major": "สาขาเทคโนโลยีคอมพิวเตอร์",
       "university": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
       "campus": "วิทยาเขตกรุงเทพ",
-      "email": "surachart.l@email.kmutnb.ac.th",
-      "github": "https://github.com",
+      "email": "titlemy36@gmail.com",
+      "github": "https://github.com/Surachart01",
       "facebook": "https://facebook.com",
-      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400"
+      "imageUrl": "/images/profile.png"
     }
   }
 }
+
