@@ -22,6 +22,14 @@ export function Record() {
     return `https://drive.google.com/file/d/${id}/view`;
   };
 
+  const getSheetViewUrl = (url) => {
+    if (!url) return '#';
+    if (url.includes('/pub?')) {
+      return url.replace('/pub?', '/pubhtml?').replace('&output=csv', '');
+    }
+    return url;
+  };
+
   // Robust CSV line parser that handles quoted fields
   const parseCSVLine = (line) => {
     const result = [];
@@ -207,13 +215,15 @@ export function Record() {
         ) : null}
       </div>
 
-      <div className="guide-footer glass-panel">
-        <a href={activeTerm === 'term1' ? teachingRecord.term1Url : teachingRecord.term2Url}
-          target="_blank" rel="noopener noreferrer" className="sheet-link-btn">
-          <ExternalLink size={18} />
-          <span>เปิด Google Sheet ของ {activeTerm === 'term1' ? 'เทอม 1' : 'เทอม 2'}</span>
-        </a>
-      </div>
+      {teachingRecord.sheetUrl && (
+        <div className="guide-footer glass-panel">
+          <a href={getSheetViewUrl(teachingRecord.sheetUrl)}
+            target="_blank" rel="noopener noreferrer" className="sheet-link-btn">
+            <ExternalLink size={18} />
+            <span>เปิด Google Sheet บันทึกการฝึกสอน</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }

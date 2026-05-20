@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Image as ImageIcon, ChevronRight, Search, RefreshCw, ExternalLink } from 'lucide-react';
+import { Calendar, Image as ImageIcon, ChevronRight, Search, RefreshCw, ExternalLink, Info } from 'lucide-react';
 import './Activities.css';
 import siteData from '../data/siteData.json';
 
@@ -56,6 +56,14 @@ export function Activities() {
     return `https://drive.google.com/file/d/${id}/view`;
   };
 
+  const getSheetViewUrl = (url) => {
+    if (!url) return '#';
+    if (url.includes('/pub?')) {
+      return url.replace('/pub?', '/pubhtml?').replace('&output=csv', '');
+    }
+    return url;
+  };
+
   // --- Fetch from Sheets if URL is configured ---
   const fetchActivities = async () => {
     if (!activities.sheetUrl) { setLiveData(null); return; }
@@ -67,11 +75,16 @@ export function Activities() {
       if (!res.ok) throw new Error();
       const text = await res.text();
       const all = parseCSV(text);
-      // Filter by term column
+      // Filter by term column (more robust cleanTerm check)
       const termNum = activeTerm === 'term1' ? '1' : '2';
-      setLiveData(all.filter(r => !r.term || r.term === '' || r.term === termNum));
-    } catch {
-      setError('ไม่สามารถโหลดข้อมูลกิจกรรมจาก Google Sheets ได้');
+      const filteredData = all.filter(r => {
+        if (!r.term || r.term.trim() === '') return true;
+        const cleanTerm = r.term.trim();
+        return cleanTerm === termNum || cleanTerm.includes(termNum);
+      });
+      setLiveData(filteredData);
+    } catch (err) {
+      setError('ไม่สามารถโหลดข้อมูลกิจกรรมจาก Google Sheets ได้ กรุณาตรวจสอบลิงก์หรือการแชร์ชีต');
       setLiveData(null);
     } finally {
       setLoading(false);
@@ -116,13 +129,20 @@ export function Activities() {
             className="search-input" />
         </div>
 
-        {(activities.term1Url || activities.term2Url) && (
+        {activities.sheetUrl && (
           <button onClick={fetchActivities} className="act-refresh-btn" disabled={loading}>
             <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
             <span>รีเฟรช</span>
           </button>
         )}
       </div>
+
+      {error && (
+        <div className="error-banner glass-panel" style={{ margin: '1rem 0', color: '#c0392b', display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.5rem', border: '1px solid #ffcccc', borderRadius: 'var(--radius-lg)', backgroundColor: '#fff3f3', fontWeight: 600 }}>
+          <Info size={20} className="text-danger" style={{ color: '#c0392b' }} />
+          <p style={{ margin: 0 }}>{error}</p>
+        </div>
+      )}
 
       {loading && (
         <div className="act-loading glass-panel">
@@ -181,6 +201,16 @@ export function Activities() {
           </div>
         ) : null}
       </div>
+
+      {activities.sheetUrl && (
+        <div className="guide-footer glass-panel" style={{ marginTop: '2rem' }}>
+          <a href={getSheetViewUrl(activities.sheetUrl)}
+            target="_blank" rel="noopener noreferrer" className="sheet-link-btn">
+            <ExternalLink size={18} />
+            <span>เปิด Google Sheet สำหรับข้อมูลกิจกรรม</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }
