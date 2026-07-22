@@ -28,8 +28,8 @@ export function Schedule() {
       { day: 4, start: 0, span: 1, name: "กิจกรรมหน้าเสาธง", code: "", color: "#9e9e9e" },
       
       { day: 1, start: 6, span: 3, name: "ระบบปฏิบัติการเครื่องแม่ข่าย", code: "31901-2002", color: "#E91E63" },
-      { day: 2, start: 1, span: 4, name: "การเขียนโปรแกรมคอมพิวเตอร์", code: "21900-1001", color: "#4CAF50" },
-      { day: 4, start: 1, span: 3, name: "ระบบปฏิบัติการเครื่องแม่ข่าย", code: "31901-2002", color: "#00BCD4" },
+      { day: 2, start: 1, span: 3, name: "การเขียนโปรแกรมคอมพิวเตอร์", code: "21900-1001", color: "#4CAF50" },
+      { day: 4, start: 1, span: 2, name: "ระบบปฏิบัติการเครื่องแม่ข่าย", code: "31901-2002", color: "#00BCD4" },
     ],
     term2: [] // Add term 2 data here later
   };

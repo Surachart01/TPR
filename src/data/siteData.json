@@ -10,7 +10,7 @@
     "logoUrl": "https://nc.ac.th/nvc/wp-content/uploads/2021/08/logo-nvc.png",
     "studentName": "นายสุรชาติ ลิ้มรัตนพันธ์",
     "role": "นักศึกษาฝึกสอน",
-    "major": "สาขาวิชาคอมพิวเตอร์ธุรกิจ",
+    "major": "สาขาวิชาเทคโนโลยีสารสนเทศ",
     "university": "คณะครุศาสตร์อุตสาหกรรม มจพ.",
     "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200"
   },
@@ -22,13 +22,6 @@
       { "label": "นักเรียน", "value": "120", "unit": "คน", "iconName": "Users" }
     ],
     "responsibilities": [
-      {
-        "id": "res-1",
-        "iconName": "UserCheck",
-        "title": "ครูที่ปรึกษา",
-        "description": "ดูแลนักศึกษาชั้นประกาศนียบัตรวิชาชีพขั้นสูง ชั้นปีที่ 1 จำนวน 16 คน",
-        "color": "#FF5722"
-      },
       {
         "id": "res-2",
         "iconName": "Flag",
@@ -211,4 +204,3 @@
     }
   }
 }
-
