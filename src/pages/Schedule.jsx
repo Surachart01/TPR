@@ -146,10 +146,25 @@ export function Schedule() {
                   <span className="course-hours">{course.hours} ชม./สัปดาห์</span>
                 </div>
                 <h3 className="course-name">{course.name}</h3>
+                
+                {course.day && (
+                  <div className="course-schedule-tag">
+                    <Calendar size={15} />
+                    <span>{course.day}</span>
+                  </div>
+                )}
+
+                {course.time && (
+                  <div className="course-time-tag">
+                    <Clock size={15} />
+                    <span>{course.time}</span>
+                  </div>
+                )}
+
                 <div className="course-footer">
                   <div className="course-info-item">
                     <Users size={16} />
-                    <span>{course.classes}</span>
+                    <span>กลุ่มเรียน: {course.classes}</span>
                   </div>
                 </div>
               </div>
