@@ -27,6 +27,9 @@ export function Record() {
     if (url.includes('/pub?')) {
       return url.replace('/pub?', '/pubhtml?').replace('&output=csv', '');
     }
+    if (url.includes('/gviz/tq') || url.includes('/export?')) {
+      return url.split('/gviz/tq')[0].split('/export?')[0] + '/edit?gid=0';
+    }
     return url;
   };
 
@@ -50,6 +53,12 @@ export function Record() {
     return result;
   };
 
+  // Clean quotes from CSV field
+  const cleanField = (str) => {
+    if (!str) return '';
+    return str.replace(/^["']|["']$/g, '').trim();
+  };
+
   // Parse raw CSV text → array of record objects
   // Columns: วันที่(0), วิชาสอน(1), รายละเอียด(2), รูปภาพ(3), เทอม(4), สัปดาห์(5)
   const parseCSV = (text) => {
@@ -61,16 +70,16 @@ export function Record() {
       .map(line => {
         const cols = parseCSVLine(line);
         return {
-          date: cols[0] || '',
-          subject: cols[1] || '-',
-          detail: cols[2] || '',
-          imageId: cols[3] || '',
-          term: cols[4] || '',
-          week: parseInt(cols[5]) || 0,
+          date: cleanField(cols[0]),
+          subject: cleanField(cols[1]) || '-',
+          detail: cleanField(cols[2]),
+          imageId: cleanField(cols[3]),
+          term: cleanField(cols[4]),
+          week: parseInt(cleanField(cols[5])) || 0,
         };
       })
       // Only keep rows that have a date AND some content
-      .filter(r => r.date && r.date.trim() !== '' && (r.detail.trim() !== '' || r.imageId.trim() !== ''));
+      .filter(r => r.date && r.date !== '' && (r.detail !== '' || r.imageId !== ''));
 
     return parsed;
   };
@@ -185,7 +194,7 @@ export function Record() {
               </div>
               <div className="card-body">
                 <p className="detail-text">{item.detail}</p>
-                {item.imageId && item.imageId !== '-' && item.imageId !== '' && (
+                {item.imageId && item.imageId !== '-' && item.imageId !== '' ? (
                   <>
                     <div className="record-image-wrapper">
                       <iframe
@@ -202,6 +211,17 @@ export function Record() {
                       <span>ดูรูปภาพต้นฉบับ</span>
                     </a>
                   </>
+                ) : (
+                  <div className="record-image-wrapper default-wrapper">
+                    <img
+                      src="/images/default-record.jpg"
+                      alt="ภาพประกอบการจัดการเรียนการสอนและการปฏิบัติงาน"
+                      className="record-default-img"
+                    />
+                    <div className="default-overlay-badge">
+                      <span>ภาพประกอบการสอน (NOS)</span>
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

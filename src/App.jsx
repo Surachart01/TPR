@@ -7,6 +7,7 @@ import { LessonPlans } from './pages/LessonPlans';
 import { Activities } from './pages/Activities';
 import { Creators } from './pages/Creators';
 import { Record } from './pages/Record';
+import { Systems } from './pages/Systems';
 import { Placeholder } from './pages/Placeholder';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="evaluation" element={<Placeholder title="แบบการประเมินฝึกสอน" />} />
           <Route path="record" element={<Record />} />
           <Route path="research" element={<Placeholder title="วิจัยในชั้นเรียน" />} />
+          <Route path="systems" element={<Systems />} />
           <Route path="creators" element={<Creators />} />
         </Route>
       </Routes>

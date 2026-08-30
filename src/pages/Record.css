@@ -199,6 +199,33 @@
   border-radius: var(--radius-lg);
 }
 
+.record-default-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-lg);
+  transition: transform 0.4s ease;
+}
+
+.record-card:hover .record-default-img {
+  transform: scale(1.03);
+}
+
+.default-overlay-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
 .image-overlay {
   position: absolute;
   top: 1rem;
