@@ -11,7 +11,7 @@ import {
   Users,
   GraduationCap,
   Award,
-  Clock
+  // Clock
 } from 'lucide-react';
 import siteData from '../data/siteData.json';
 import './Sidebar.css';
@@ -23,7 +23,7 @@ const menuItems = [
   { path: '/lesson-plans', name: 'แผนการสอน', icon: BookOpen },
   { path: '/activities', name: 'กิจกรรม', icon: Activity },
   { path: '/portfolio', name: 'ผลงาน', icon: Award },
-  { path: '/attendance', name: 'บันทึกการเข้าออกงาน', icon: Clock },
+  // { path: '/attendance', name: 'บันทึกการเข้าออกงาน', icon: Clock },
   { path: '/evaluation', name: 'แบบการประเมินฝึกสอน', icon: CheckSquare },
   { path: '/record', name: 'บันทึกการฝึกสอน', icon: PenTool },
   { path: '/research', name: 'วิจัยในชั้นเรียน', icon: FileText },
