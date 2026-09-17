@@ -126,7 +126,7 @@
     "description": "แผนการจัดการเรียนรู้มุ่งเน้นสมรรถนะอาชีพและบูรณาการคุณธรรม จริยธรรม และปรัชญาของเศรษฐกิจพอเพียง",
     "term1": {
       "semester": "ภาคเรียนที่ 1/2568",
-      "ebookUrl": "https://drive.google.com/file/d/1I3_NUAN9mTRyKd-SR0Ss2sla63kBX9ly/preview",
+      "ebookUrl": "/docs/lesson-plan-21900-1001.pdf",
       "courseInfo": {
         "code": "21900-1001",
         "name": "การเขียนโปรแกรมคอมพิวเตอร์ (Computer Programming)",
@@ -139,7 +139,7 @@
         "faculty": "ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ",
         "group": "กลุ่มอาชีพซอฟต์แวร์และการประยุกต์",
         "standardRef": "อาชีพนักพัฒนาระบบ ระดับ 3 (สถาบันคุณวุฒิวิชาชีพ องค์การมหาชน)",
-        "instructor": "นายชานนท์ ปฏิพิมพาคม",
+        "instructor": "นายสุรชาติ ลิ้มรัตนพันธ์",
         "institution": "วิทยาลัยอาชีวศึกษานครปฐม"
       },
       "courseDescription": "ศึกษาและปฏิบัติเกี่ยวกับหลักการเขียนโปรแกรมและการพัฒนาโปรแกรม อัลกอริทึมและผังงาน โครงสร้างภาษาซี ตัวแปร ชนิดข้อมูล ตัวดำเนินการและนิพจน์ การรับและแสดงผลข้อมูล การเขียนโปรแกรมแบบมีเงื่อนไข การเขียนโปรแกรมแบบวนซ้ำ ฟังก์ชัน อาร์เรย์และการประยุกต์เขียนโปรแกรมด้วยภาษาซีเพื่อแก้ปัญหา",
@@ -523,5 +523,66 @@
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
       }
     ]
+  },
+  "portfolio": {
+    "title": "ผลงาน",
+    "description": "รวบรวมผลงานเด่น การประกวด สื่อการสอน และความสำเร็จตลอดการฝึกประสบการณ์วิชาชีพครู",
+    "sheetUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTNjJgOeMOE59YHxdci_ZrAqyFTO1V4VRqDbnB_vS4_AQ1kKHSOJJ0T3BOpkC-ZuvN1GFxbKkSJjPCF/pub?gid=2146311436&single=true&output=csv",
+    "term1": [
+      {
+        "id": "port-1",
+        "date": "15 สิงหาคม 2568",
+        "title": "สื่อการจัดการเรียนรู้นวัตกรรม E-Learning",
+        "category": "สื่อการสอน",
+        "description": "พัฒนาบทเรียนออนไลน์ในรายวิชาการเขียนโปรแกรมคอมพิวเตอร์และระบบปฏิบัติการเครื่องแม่ข่าย ช่วยให้นักเรียนสามารถทบทวนบทเรียนได้ทุกที่ทุกเวลา",
+        "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800&h=450",
+        "term": "1"
+      },
+      {
+        "id": "port-2",
+        "date": "5 กันยายน 2568",
+        "title": "รางวัลครูฝึกสอนดีเด่น (Outstanding Student Teacher)",
+        "category": "รางวัลและความภาคภูมิใจ",
+        "description": "ได้รับคัดเลือกให้เป็นนักศึกษาฝึกสอนดีเด่นประจำเดือนในด้านการจัดทำแผนการสอนและการอุทิศตนเพื่อนักเรียน",
+        "imageUrl": "https://images.unsplash.com/photo-1496469888073-80de7e9b2f53?auto=format&fit=crop&q=80&w=800&h=450",
+        "term": "1"
+      }
+    ],
+    "term2": [
+      {
+        "id": "port-3",
+        "date": "20 กุมภาพันธ์ 2569",
+        "title": "นวัตกรรมบอร์ดเกมเสริมทักษะดิจิทัลและการจัดการเซิร์ฟเวอร์",
+        "category": "สื่อการสอน",
+        "description": "ออกแบบและพัฒนาบอร์ดเกมเสริมทักษะการคิดเชิงคำนวณและระบบฐานข้อมูล เพื่อให้นักเรียนเข้าใจกระบวนการทำงานได้รวดเร็วยิ่งขึ้น",
+        "imageUrl": "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&q=80&w=800&h=450",
+        "term": "2"
+      },
+      {
+        "id": "port-4",
+        "date": "10 มีนาคม 2569",
+        "title": "ที่ปรึกษาโครงงานนวัตกรรมดิจิทัลรางวัลรองชนะเลิศ",
+        "category": "ผลงานนักเรียน",
+        "description": "ควบคุมและดูแลโครงงานสิ่งประดิษฐ์ของนักเรียนระดับชั้น ปวช. ในหัวข้อการประยุกต์ใช้ IoT และ Cloud Server เพื่อการเกษตรในชุมชน",
+        "imageUrl": "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?auto=format&fit=crop&q=80&w=800&h=450",
+        "term": "2"
+      }
+    ]
+  },
+  "attendance": {
+    "title": "บันทึกการเข้าออกงาน",
+    "description": "บันทึกการลงเวลาเข้า-ออกงานปฏิบัติหน้าที่ฝึกประสบการณ์วิชาชีพครูในแต่ละวัน",
+    "sheetUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTNjJgOeMOE59YHxdci_ZrAqyFTO1V4VRqDbnB_vS4_AQ1kKHSOJJ0T3BOpkC-ZuvN1GFxbKkSJjPCF/pub?gid=1541891668&single=true&output=csv",
+    "driveUrl": "https://drive.google.com/drive/folders/1dC160_fTXCD-4Urkyv0SZXHjHrippqzX?usp=drive_link",
+    "monthlyDriveUrls": {
+      "พฤษภาคม": "https://drive.google.com/drive/folders/10M-KLly1K-W_hcFOPdqxm9IXPWUGubFD?usp=sharing",
+      "มิถุนายน": "https://drive.google.com/drive/folders/1eKiEfZUk95q_92mcjYrvwxXUZyjKr4qg?usp=sharing",
+      "กรกฎาคม": "https://drive.google.com/drive/folders/1uCkDtRSuSkJlOpBSzrBF3eMmpdka5gR5?usp=sharing",
+      "สิงหาคม": "https://drive.google.com/drive/folders/13IJSHD2As5ea_dZ4XofxwRt0ACGb5LSn?usp=sharing",
+      "กันยายน": "https://drive.google.com/drive/folders/1ptyJ5WtCHeO66_KHESGQGI7OHjYThKbo?usp=sharing",
+      "ตุลาคม": "https://drive.google.com/drive/folders/1V05eJpn6QpEKviy5X46moIKZnFAbe-K5?usp=sharing",
+      "พฤศจิกายน": "https://drive.google.com/drive/folders/1vPa7qPSu9AHoiFrxgTz7QpFnmu9T1tIH?usp=sharing",
+      "ธันวาคม": "https://drive.google.com/drive/folders/1ZIyzNpjukfhjLFofD6efZLThMNOgEZb7?usp=sharing"
+    }
   }
 }

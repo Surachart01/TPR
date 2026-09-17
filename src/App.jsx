@@ -5,9 +5,10 @@ import { About } from './pages/About';
 import { Schedule } from './pages/Schedule';
 import { LessonPlans } from './pages/LessonPlans';
 import { Activities } from './pages/Activities';
+import { Portfolio } from './pages/Portfolio';
+import { Attendance } from './pages/Attendance';
 import { Creators } from './pages/Creators';
 import { Record } from './pages/Record';
-import { Systems } from './pages/Systems';
 import { Placeholder } from './pages/Placeholder';
 
 function App() {
@@ -20,10 +21,11 @@ function App() {
           <Route path="schedule" element={<Schedule />} />
           <Route path="lesson-plans" element={<LessonPlans />} />
           <Route path="activities" element={<Activities />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="attendance" element={<Attendance />} />
           <Route path="evaluation" element={<Placeholder title="แบบการประเมินฝึกสอน" />} />
           <Route path="record" element={<Record />} />
           <Route path="research" element={<Placeholder title="วิจัยในชั้นเรียน" />} />
-          <Route path="systems" element={<Systems />} />
           <Route path="creators" element={<Creators />} />
         </Route>
       </Routes>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { 
-  Book, 
+  FileText, 
   BookOpen, 
   Download, 
   CheckCircle2, 
@@ -12,7 +12,9 @@ import {
   Sparkles,
   UserCheck,
   ChevronRight,
-  Code
+  Code,
+  ExternalLink,
+  Maximize2
 } from 'lucide-react';
 import './LessonPlans.css';
 import siteData from '../data/siteData.json';
@@ -20,12 +22,15 @@ import siteData from '../data/siteData.json';
 export function LessonPlans() {
   const { lessonPlans } = siteData;
   const [activeTerm, setActiveTerm] = useState('term1');
-  const [viewMode, setViewMode] = useState('units'); // 'units' | 'courseInfo' | 'ebook'
+  const [viewMode, setViewMode] = useState('pdf'); // 'pdf' (default) | 'units' | 'courseInfo'
   const [selectedUnit, setSelectedUnit] = useState(null);
 
   const currentPlan = lessonPlans[activeTerm];
   const courseInfo = currentPlan?.courseInfo;
   const units = currentPlan?.units || [];
+  const pdfViewUrl = currentPlan?.ebookUrl || '';
+  const isGoogleDrive = pdfViewUrl.includes('drive.google.com');
+  const pdfDirectUrl = isGoogleDrive ? pdfViewUrl.replace('/preview', '/view') : pdfViewUrl;
 
   return (
     <div className="lesson-plans-container animate-fade-in">
@@ -52,11 +57,12 @@ export function LessonPlans() {
             </div>
           </div>
           <div className="course-banner-actions">
-            {currentPlan.ebookUrl && (
+            {pdfDirectUrl && (
               <a
-                href={currentPlan.ebookUrl.replace('/preview', '/view')}
+                href={pdfDirectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                download={pdfDirectUrl.endsWith('.pdf') ? 'แผนการจัดการเรียนรู้-21900-1001-สุรชาติ.pdf' : undefined}
                 className="course-download-btn"
               >
                 <Download size={18} />
@@ -85,6 +91,16 @@ export function LessonPlans() {
         </div>
 
         <div className="view-mode-tabs glass-panel">
+          {pdfViewUrl && (
+            <button 
+              className={`view-mode-btn ${viewMode === 'pdf' ? 'active' : ''}`}
+              onClick={() => setViewMode('pdf')}
+            >
+              <FileText size={16} />
+              <span>เอกสาร PDF ฉบับเต็ม</span>
+            </button>
+          )}
+
           {units.length > 0 && (
             <>
               <button 
@@ -103,21 +119,73 @@ export function LessonPlans() {
               </button>
             </>
           )}
-          {currentPlan?.ebookUrl && (
-            <button 
-              className={`view-mode-btn ${viewMode === 'ebook' || units.length === 0 ? 'active' : ''}`}
-              onClick={() => setViewMode('ebook')}
-            >
-              <BookOpen size={16} />
-              <span>เล่มแผน E-Book Reader</span>
-            </button>
-          )}
         </div>
       </div>
 
-      {/* VIEW MODE 1: Units Structure */}
+      {/* VIEW MODE 1 (DEFAULT): Direct PDF Viewer */}
+      {(viewMode === 'pdf' || units.length === 0) && pdfViewUrl && (
+        <div className="pdf-viewer-section animate-fade-in" key={`${activeTerm}-pdf`}>
+          <div className="pdf-frame-container glass-panel">
+            <div className="pdf-header">
+              <div className="pdf-title-group">
+                <div className="pdf-icon-wrap">
+                  <FileText size={20} className="text-primary" />
+                </div>
+                <div>
+                  <h3 className="pdf-doc-title">
+                    {courseInfo?.name ? `${courseInfo.code} ${courseInfo.name}` : `แผนการจัดการเรียนรู้ ${currentPlan.semester}`}
+                  </h3>
+                  <span className="pdf-subtitle">เอกสารแผนการสอนฉบับเต็ม ({currentPlan.semester})</span>
+                </div>
+              </div>
+
+              <div className="pdf-actions">
+                <a 
+                  href={pdfDirectUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="pdf-action-btn secondary"
+                  title="เปิดเต็มจอในแท็บใหม่"
+                >
+                  <ExternalLink size={16} />
+                  <span>เปิดแท็บใหม่</span>
+                </a>
+                <a 
+                  href={pdfDirectUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  download={pdfDirectUrl.endsWith('.pdf') ? 'แผนการจัดการเรียนรู้-21900-1001-สุรชาติ.pdf' : undefined}
+                  className="pdf-action-btn primary"
+                  title="ดาวน์โหลดไฟล์ PDF"
+                >
+                  <Download size={16} />
+                  <span>ดาวน์โหลด PDF</span>
+                </a>
+              </div>
+            </div>
+            
+            <div className="pdf-iframe-wrapper">
+              <iframe 
+                src={pdfViewUrl} 
+                allow="autoplay" 
+                title={`แผนการสอน PDF ${currentPlan.semester}`}
+                className="pdf-iframe"
+              ></iframe>
+            </div>
+          </div>
+          
+          <div className="pdf-footer-info">
+            <p>
+              <BookOpen size={16} />
+              <span>สามารถเลื่อนดูหน้าเอกสาร ซูมเข้า-ออก หรือคลิกปุ่ม <strong>"เปิดแท็บใหม่"</strong> เพื่อเปิดอ่านในหน้าต่างขนาดเต็ม</span>
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* VIEW MODE 2: Units Structure */}
       {viewMode === 'units' && units.length > 0 && (
-        <div className="units-section animate-fade-in">
+        <div className="units-section animate-fade-in" key={`${activeTerm}-units`}>
           <div className="units-header-row">
             <div>
               <h3 className="section-title">หน่วยการเรียนรู้และสาระสำคัญ (9 หน่วย & 18 สัปดาห์)</h3>
@@ -196,9 +264,9 @@ export function LessonPlans() {
         </div>
       )}
 
-      {/* VIEW MODE 2: Course Description & Competencies */}
+      {/* VIEW MODE 3: Course Description & Competencies */}
       {viewMode === 'courseInfo' && courseInfo && (
-        <div className="course-details-section animate-fade-in">
+        <div className="course-details-section animate-fade-in" key={`${activeTerm}-info`}>
           {/* Course Description */}
           <div className="info-block glass-panel">
             <div className="block-header">
@@ -259,42 +327,6 @@ export function LessonPlans() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* VIEW MODE 3: Full E-Book Viewer */}
-      {(viewMode === 'ebook' || units.length === 0) && currentPlan?.ebookUrl && (
-        <div className="ebook-viewer-section animate-fade-in" key={activeTerm}>
-          <div className="ebook-frame-container">
-            <div className="ebook-spine"></div>
-            <div className="ebook-content glass-panel">
-              <div className="ebook-header">
-                <div className="ebook-title">
-                  <BookOpen size={20} className="text-primary" />
-                  <span>{currentPlan.semester} - {courseInfo?.name || 'แผนการจัดการเรียนรู้'}</span>
-                </div>
-                <div className="ebook-actions">
-                  <span className="ebook-status">E-Book Reader Mode</span>
-                </div>
-              </div>
-              
-              <div className="iframe-wrapper">
-                <iframe 
-                  src={currentPlan.ebookUrl} 
-                  allow="autoplay" 
-                  title={`แผนการสอน ${currentPlan.semester}`}
-                  className="ebook-iframe"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-          
-          <div className="ebook-footer-info">
-            <p>
-              <Book size={16} />
-              <span>สามารถเปิดอ่านและเลื่อนดูหน้าต่างๆ ได้โดยตรง หรือคลิกปุ่ม "ดาวน์โหลดเล่มแผน" เพื่อเก็บไฟล์ไว้ในเครื่อง</span>
-            </p>
           </div>
         </div>
       )}

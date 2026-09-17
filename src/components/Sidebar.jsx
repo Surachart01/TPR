@@ -10,7 +10,8 @@ import {
   FileText, 
   Users,
   GraduationCap,
-  Laptop
+  Award,
+  Clock
 } from 'lucide-react';
 import siteData from '../data/siteData.json';
 import './Sidebar.css';
@@ -21,10 +22,11 @@ const menuItems = [
   { path: '/schedule', name: 'ตารางสอน', icon: Calendar },
   { path: '/lesson-plans', name: 'แผนการสอน', icon: BookOpen },
   { path: '/activities', name: 'กิจกรรม', icon: Activity },
+  { path: '/portfolio', name: 'ผลงาน', icon: Award },
+  { path: '/attendance', name: 'บันทึกการเข้าออกงาน', icon: Clock },
   { path: '/evaluation', name: 'แบบการประเมินฝึกสอน', icon: CheckSquare },
   { path: '/record', name: 'บันทึกการฝึกสอน', icon: PenTool },
   { path: '/research', name: 'วิจัยในชั้นเรียน', icon: FileText },
-  { path: '/systems', name: 'ผลงานการพัฒนาระบบ', icon: Laptop },
   { path: '/creators', name: 'จัดทำโดย', icon: Users },
 ];
 
