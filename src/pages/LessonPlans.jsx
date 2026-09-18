@@ -75,20 +75,22 @@ export function LessonPlans() {
 
       {/* Top Controls: Term & View Tabs */}
       <div className="plans-controls">
-        <div className="term-switch-wrapper glass-panel">
-          <button 
-            className={`tab-btn ${activeTerm === 'term1' ? 'active' : ''}`}
-            onClick={() => setActiveTerm('term1')}
-          >
-            แผนการสอน เทอม 1
-          </button>
-          <button 
-            className={`tab-btn ${activeTerm === 'term2' ? 'active' : ''}`}
-            onClick={() => setActiveTerm('term2')}
-          >
-            แผนการสอน เทอม 2
-          </button>
-        </div>
+        {lessonPlans.term2 && (
+          <div className="term-switch-wrapper glass-panel">
+            <button 
+              className={`tab-btn ${activeTerm === 'term1' ? 'active' : ''}`}
+              onClick={() => setActiveTerm('term1')}
+            >
+              แผนการสอน เทอม 1
+            </button>
+            <button 
+              className={`tab-btn ${activeTerm === 'term2' ? 'active' : ''}`}
+              onClick={() => setActiveTerm('term2')}
+            >
+              แผนการสอน เทอม 2
+            </button>
+          </div>
+        )}
 
         <div className="view-mode-tabs glass-panel">
           {pdfViewUrl && (
