@@ -10,6 +10,7 @@ import { Attendance } from './pages/Attendance';
 import { Evaluation } from './pages/Evaluation';
 import { Creators } from './pages/Creators';
 import { Record } from './pages/Record';
+import { Research } from './pages/Research';
 import { Placeholder } from './pages/Placeholder';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
           <Route path="attendance" element={<Attendance />} />
           <Route path="evaluation" element={<Evaluation />} />
           <Route path="record" element={<Record />} />
-          <Route path="research" element={<Placeholder title="วิจัยในชั้นเรียน" />} />
+          <Route path="research" element={<Research />} />
           <Route path="creators" element={<Creators />} />
         </Route>
       </Routes>
