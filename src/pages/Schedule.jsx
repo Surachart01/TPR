@@ -10,10 +10,11 @@ export function Schedule() {
 
   const currentTerm = schedule[activeTerm];
 
-  // Timetable data for Term 1 (based on the user's provided image)
+  // Timetable slots shared by both terms
   const timeSlots = [
     "08:00 - 08:30", "08:30 - 09:30", "09:30 - 10:30", "10:30 - 11:30", 
-    "11:30 - 12:30", "12:30 - 13:30", "13:30 - 14:30", "14:30 - 15:30", "15:30 - 16:30"
+    "11:30 - 12:30", "12:30 - 13:30", "13:30 - 14:30", "14:30 - 15:30",
+    "15:30 - 16:30", "16:30 - 17:30"
   ];
 
   const days = ["จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์"];
@@ -31,7 +32,12 @@ export function Schedule() {
       { day: 2, start: 1, span: 3, name: "การเขียนโปรแกรมคอมพิวเตอร์", code: "21900-1001", color: "#4CAF50" },
       { day: 4, start: 1, span: 2, name: "ระบบปฏิบัติการเครื่องแม่ข่าย", code: "31901-2002", color: "#00BCD4" },
     ],
-    term2: [] // Add term 2 data here later
+    term2: [
+      { day: 0, start: 7, span: 3, name: "การวิเคราะห์และนำเสนอข้อมูล", code: "31901-2012", color: "#7C3AED" },
+      { day: 3, start: 8, span: 2, name: "การวิเคราะห์และนำเสนอข้อมูล", code: "31901-2012", color: "#7C3AED" },
+      { day: 3, start: 4, span: 2, name: "การจัดการระบบเครือข่าย", code: "31901-2011", color: "#0891B2" },
+      { day: 4, start: 1, span: 3, name: "การจัดการระบบเครือข่าย", code: "31901-2011", color: "#0891B2" },
+    ]
   };
 
   const currentEvents = timetableEvents[activeTerm] || [];
@@ -122,7 +128,7 @@ export function Schedule() {
                           gridColumnStart: event.start + 1, 
                           gridColumnEnd: event.start + 1 + event.span,
                           backgroundColor: event.color + '22',
-                          borderLeft: `4px solid ${event.color}`,
+                          border: `1px solid ${event.color}66`,
                           color: event.color
                         }}
                       >
@@ -161,12 +167,14 @@ export function Schedule() {
                   </div>
                 )}
 
-                <div className="course-footer">
-                  <div className="course-info-item">
-                    <Users size={16} />
-                    <span>กลุ่มเรียน: {course.classes}</span>
+                {course.classes && (
+                  <div className="course-footer">
+                    <div className="course-info-item">
+                      <Users size={16} />
+                      <span>กลุ่มเรียน: {course.classes}</span>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
