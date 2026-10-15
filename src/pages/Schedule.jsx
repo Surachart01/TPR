@@ -34,6 +34,8 @@ export function Schedule() {
     ],
     term2: [
       { day: 0, start: 7, span: 3, name: "การวิเคราะห์และนำเสนอข้อมูล", code: "31901-2012", color: "#7C3AED" },
+      { day: 0, start: 6, span: 1, name: "โปรแกรมจำลองการทำงานด้วยคอมพิวเตอร์", code: "21901-2016", color: "#EA580C" },
+      { day: 1, start: 6, span: 2, name: "โปรแกรมจำลองการทำงานด้วยคอมพิวเตอร์", code: "21901-2016", color: "#EA580C" },
       { day: 3, start: 8, span: 2, name: "การวิเคราะห์และนำเสนอข้อมูล", code: "31901-2012", color: "#7C3AED" },
       { day: 3, start: 4, span: 2, name: "การจัดการระบบเครือข่าย", code: "31901-2011", color: "#0891B2" },
       { day: 4, start: 1, span: 3, name: "การจัดการระบบเครือข่าย", code: "31901-2011", color: "#0891B2" },
